@@ -1,0 +1,744 @@
+﻿[
+    {
+        "Sinif":  "7A",
+        "StudentSayi":  15,
+        "Students":  [
+                         {
+                             "Ad":  "Ali",
+                             "Soyad":  "Mammadov",
+                             "Yaş":  10,
+                             "Sinif":  "4A",
+                             "Valideyn adı":  "Rashad"
+                         },
+                         {
+                             "Ad":  "Gunel",
+                             "Soyad":  "Taghiyeva",
+                             "Yaş":  13,
+                             "Sinif":  "7B",
+                             "Valideyn adı":  "Nermin"
+                         },
+                         {
+                             "Ad":  "Kanan",
+                             "Soyad":  "Abbasov",
+                             "Yaş":  12,
+                             "Sinif":  "6D",
+                             "Valideyn adı":  "Ilgar"
+                         },
+                         {
+                             "Ad":  "Leyla",
+                             "Soyad":  "Orujova",
+                             "Yaş":  11,
+                             "Sinif":  "5F",
+                             "Valideyn adı":  "Sona"
+                         },
+                         {
+                             "Ad":  "Rashid",
+                             "Soyad":  "Rahimov",
+                             "Yaş":  10,
+                             "Sinif":  "4D",
+                             "Valideyn adı":  "Anar"
+                         },
+                         {
+                             "Ad":  "Aysel",
+                             "Soyad":  "Hajiyev",
+                             "Yaş":  13,
+                             "Sinif":  "5E",
+                             "Valideyn adı":  "Samira"
+                         },
+                         {
+                             "Ad":  "Emil",
+                             "Soyad":  "Hasanov",
+                             "Yaş":  12,
+                             "Sinif":  "6F",
+                             "Valideyn adı":  "Elchin"
+                         },
+                         {
+                             "Ad":  "Aysu",
+                             "Soyad":  "Suleymanov",
+                             "Yaş":  11,
+                             "Sinif":  "7F",
+                             "Valideyn adı":  "Aynur"
+                         },
+                         {
+                             "Ad":  "Murad",
+                             "Soyad":  "Asadov",
+                             "Yaş":  10,
+                             "Sinif":  "5A",
+                             "Valideyn adı":  "Eldar"
+                         },
+                         {
+                             "Ad":  "Nigar",
+                             "Soyad":  "Qurbanov",
+                             "Yaş":  13,
+                             "Sinif":  "6B",
+                             "Valideyn adı":  "Lale"
+                         },
+                         {
+                             "Ad":  "Elnur",
+                             "Soyad":  "Jafarov",
+                             "Yaş":  12,
+                             "Sinif":  "7B",
+                             "Valideyn adı":  "Rovshan"
+                         },
+                         {
+                             "Ad":  "Gunay",
+                             "Soyad":  "Babayev",
+                             "Yaş":  11,
+                             "Sinif":  "4C",
+                             "Valideyn adı":  "Naila"
+                         },
+                         {
+                             "Ad":  "Fuad",
+                             "Soyad":  "Ibrahimov",
+                             "Yaş":  10,
+                             "Sinif":  "5D",
+                             "Valideyn adı":  "Farid"
+                         },
+                         {
+                             "Ad":  "Leman",
+                             "Soyad":  "Taghiyev",
+                             "Yaş":  13,
+                             "Sinif":  "6E",
+                             "Valideyn adı":  "Gunay"
+                         },
+                         {
+                             "Ad":  "Ramil",
+                             "Soyad":  "Veliyev",
+                             "Yaş":  12,
+                             "Sinif":  "7E",
+                             "Valideyn adı":  "Vugar"
+                         }
+                     ]
+    },
+    {
+        "Sinif":  "7B",
+        "StudentSayi":  15,
+        "Students":  [
+                         {
+                             "Ad":  "Aysel",
+                             "Soyad":  "Hasanova",
+                             "Yaş":  11,
+                             "Sinif":  "5B",
+                             "Valideyn adı":  "Sevda"
+                         },
+                         {
+                             "Ad":  "Orxan",
+                             "Soyad":  "Rahimov",
+                             "Yaş":  10,
+                             "Sinif":  "4C",
+                             "Valideyn adı":  "Anar"
+                         },
+                         {
+                             "Ad":  "Narmin",
+                             "Soyad":  "Mursalova",
+                             "Yaş":  13,
+                             "Sinif":  "7D",
+                             "Valideyn adı":  "Samira"
+                         },
+                         {
+                             "Ad":  "Yusif",
+                             "Soyad":  "Gurbanov",
+                             "Yaş":  12,
+                             "Sinif":  "6F",
+                             "Valideyn adı":  "Tahir"
+                         },
+                         {
+                             "Ad":  "Aysu",
+                             "Soyad":  "Suleymanov",
+                             "Yaş":  11,
+                             "Sinif":  "4E",
+                             "Valideyn adı":  "Aynur"
+                         },
+                         {
+                             "Ad":  "Murad",
+                             "Soyad":  "Asadov",
+                             "Yaş":  10,
+                             "Sinif":  "5F",
+                             "Valideyn adı":  "Eldar"
+                         },
+                         {
+                             "Ad":  "Nigar",
+                             "Soyad":  "Qurbanov",
+                             "Yaş":  13,
+                             "Sinif":  "6G",
+                             "Valideyn adı":  "Lale"
+                         },
+                         {
+                             "Ad":  "Elnur",
+                             "Soyad":  "Jafarov",
+                             "Yaş":  12,
+                             "Sinif":  "4A",
+                             "Valideyn adı":  "Rovshan"
+                         },
+                         {
+                             "Ad":  "Gunay",
+                             "Soyad":  "Babayev",
+                             "Yaş":  11,
+                             "Sinif":  "5B",
+                             "Valideyn adı":  "Naila"
+                         },
+                         {
+                             "Ad":  "Fuad",
+                             "Soyad":  "Ibrahimov",
+                             "Yaş":  10,
+                             "Sinif":  "6C",
+                             "Valideyn adı":  "Farid"
+                         },
+                         {
+                             "Ad":  "Leman",
+                             "Soyad":  "Taghiyev",
+                             "Yaş":  13,
+                             "Sinif":  "7C",
+                             "Valideyn adı":  "Gunay"
+                         },
+                         {
+                             "Ad":  "Ramil",
+                             "Soyad":  "Veliyev",
+                             "Yaş":  12,
+                             "Sinif":  "4D",
+                             "Valideyn adı":  "Vugar"
+                         },
+                         {
+                             "Ad":  "Aylin",
+                             "Soyad":  "Huseynov",
+                             "Yaş":  11,
+                             "Sinif":  "5E",
+                             "Valideyn adı":  "Amina"
+                         },
+                         {
+                             "Ad":  "Orkhan",
+                             "Soyad":  "Mustafayev",
+                             "Yaş":  10,
+                             "Sinif":  "6F",
+                             "Valideyn adı":  "Nijat"
+                         },
+                         {
+                             "Ad":  "Nermin",
+                             "Soyad":  "Shiriyev",
+                             "Yaş":  13,
+                             "Sinif":  "7F",
+                             "Valideyn adı":  "Ulkar"
+                         }
+                     ]
+    },
+    {
+        "Sinif":  "7C",
+        "StudentSayi":  14,
+        "Students":  [
+                         {
+                             "Ad":  "Murad",
+                             "Soyad":  "Karimov",
+                             "Yaş":  12,
+                             "Sinif":  "6A",
+                             "Valideyn adı":  "Elchin"
+                         },
+                         {
+                             "Ad":  "Laman",
+                             "Soyad":  "Huseynova",
+                             "Yaş":  11,
+                             "Sinif":  "5C",
+                             "Valideyn adı":  "Aynur"
+                         },
+                         {
+                             "Ad":  "Elvin",
+                             "Soyad":  "Shiriyev",
+                             "Yaş":  10,
+                             "Sinif":  "4E",
+                             "Valideyn adı":  "Eldar"
+                         },
+                         {
+                             "Ad":  "Nurlan",
+                             "Soyad":  "Mammadli",
+                             "Yaş":  13,
+                             "Sinif":  "7F",
+                             "Valideyn adı":  "Rena"
+                         },
+                         {
+                             "Ad":  "Elnur",
+                             "Soyad":  "Jafarov",
+                             "Yaş":  12,
+                             "Sinif":  "4F",
+                             "Valideyn adı":  "Rovshan"
+                         },
+                         {
+                             "Ad":  "Gunay",
+                             "Soyad":  "Babayev",
+                             "Yaş":  11,
+                             "Sinif":  "6A",
+                             "Valideyn adı":  "Naila"
+                         },
+                         {
+                             "Ad":  "Fuad",
+                             "Soyad":  "Ibrahimov",
+                             "Yaş":  10,
+                             "Sinif":  "7A",
+                             "Valideyn adı":  "Farid"
+                         },
+                         {
+                             "Ad":  "Leman",
+                             "Soyad":  "Taghiyev",
+                             "Yaş":  13,
+                             "Sinif":  "4B",
+                             "Valideyn adı":  "Gunay"
+                         },
+                         {
+                             "Ad":  "Ramil",
+                             "Soyad":  "Veliyev",
+                             "Yaş":  12,
+                             "Sinif":  "5C",
+                             "Valideyn adı":  "Vugar"
+                         },
+                         {
+                             "Ad":  "Aylin",
+                             "Soyad":  "Huseynov",
+                             "Yaş":  11,
+                             "Sinif":  "6D",
+                             "Valideyn adı":  "Amina"
+                         },
+                         {
+                             "Ad":  "Orkhan",
+                             "Soyad":  "Mustafayev",
+                             "Yaş":  10,
+                             "Sinif":  "7D",
+                             "Valideyn adı":  "Nijat"
+                         },
+                         {
+                             "Ad":  "Nermin",
+                             "Soyad":  "Shiriyev",
+                             "Yaş":  13,
+                             "Sinif":  "4E",
+                             "Valideyn adı":  "Ulkar"
+                         },
+                         {
+                             "Ad":  "Tofiq",
+                             "Soyad":  "Karimov",
+                             "Yaş":  12,
+                             "Sinif":  "5F",
+                             "Valideyn adı":  "Kamal"
+                         },
+                         {
+                             "Ad":  "Sima",
+                             "Soyad":  "Orujov",
+                             "Yaş":  11,
+                             "Sinif":  "6G",
+                             "Valideyn adı":  "Konul"
+                         }
+                     ]
+    },
+    {
+        "Sinif":  "7D",
+        "StudentSayi":  14,
+        "Students":  [
+                         {
+                             "Ad":  "Nigar",
+                             "Soyad":  "Aliyeva",
+                             "Yaş":  10,
+                             "Sinif":  "4B",
+                             "Valideyn adı":  "Lale"
+                         },
+                         {
+                             "Ad":  "Samir",
+                             "Soyad":  "Veliyev",
+                             "Yaş":  12,
+                             "Sinif":  "6C",
+                             "Valideyn adı":  "Rovshan"
+                         },
+                         {
+                             "Ad":  "Ayan",
+                             "Soyad":  "Mikayilova",
+                             "Yaş":  11,
+                             "Sinif":  "5E",
+                             "Valideyn adı":  "Naila"
+                         },
+                         {
+                             "Ad":  "Pervin",
+                             "Soyad":  "Ibrahimova",
+                             "Yaş":  12,
+                             "Sinif":  "6G",
+                             "Valideyn adı":  "Afaq"
+                         },
+                         {
+                             "Ad":  "Leman",
+                             "Soyad":  "Taghiyev",
+                             "Yaş":  13,
+                             "Sinif":  "5A",
+                             "Valideyn adı":  "Gunay"
+                         },
+                         {
+                             "Ad":  "Ramil",
+                             "Soyad":  "Veliyev",
+                             "Yaş":  12,
+                             "Sinif":  "6B",
+                             "Valideyn adı":  "Vugar"
+                         },
+                         {
+                             "Ad":  "Aylin",
+                             "Soyad":  "Huseynov",
+                             "Yaş":  11,
+                             "Sinif":  "7B",
+                             "Valideyn adı":  "Amina"
+                         },
+                         {
+                             "Ad":  "Orkhan",
+                             "Soyad":  "Mustafayev",
+                             "Yaş":  10,
+                             "Sinif":  "4C",
+                             "Valideyn adı":  "Nijat"
+                         },
+                         {
+                             "Ad":  "Nermin",
+                             "Soyad":  "Shiriyev",
+                             "Yaş":  13,
+                             "Sinif":  "5D",
+                             "Valideyn adı":  "Ulkar"
+                         },
+                         {
+                             "Ad":  "Tofiq",
+                             "Soyad":  "Karimov",
+                             "Yaş":  12,
+                             "Sinif":  "6E",
+                             "Valideyn adı":  "Kamal"
+                         },
+                         {
+                             "Ad":  "Sima",
+                             "Soyad":  "Orujov",
+                             "Yaş":  11,
+                             "Sinif":  "7E",
+                             "Valideyn adı":  "Konul"
+                         },
+                         {
+                             "Ad":  "Kenan",
+                             "Soyad":  "Aliyev",
+                             "Yaş":  10,
+                             "Sinif":  "4F",
+                             "Valideyn adı":  "Rashad"
+                         },
+                         {
+                             "Ad":  "Zeynab",
+                             "Soyad":  "Abbasov",
+                             "Yaş":  13,
+                             "Sinif":  "6A",
+                             "Valideyn adı":  "Nermin"
+                         },
+                         {
+                             "Ad":  "Namiq",
+                             "Soyad":  "Mikayilov",
+                             "Yaş":  12,
+                             "Sinif":  "7A",
+                             "Valideyn adı":  "Ilgar"
+                         }
+                     ]
+    },
+    {
+        "Sinif":  "7E",
+        "StudentSayi":  14,
+        "Students":  [
+                         {
+                             "Ad":  "Tural",
+                             "Soyad":  "Quliyev",
+                             "Yaş":  13,
+                             "Sinif":  "7A",
+                             "Valideyn adı":  "Farid"
+                         },
+                         {
+                             "Ad":  "Zahra",
+                             "Soyad":  "Babayeva",
+                             "Yaş":  13,
+                             "Sinif":  "7C",
+                             "Valideyn adı":  "Gunay"
+                         },
+                         {
+                             "Ad":  "Ramil",
+                             "Soyad":  "Hajiyev",
+                             "Yaş":  12,
+                             "Sinif":  "6E",
+                             "Valideyn adı":  "Vugar"
+                         },
+                         {
+                             "Ad":  "Aylin",
+                             "Soyad":  "Huseynov",
+                             "Yaş":  11,
+                             "Sinif":  "4A",
+                             "Valideyn adı":  "Amina"
+                         },
+                         {
+                             "Ad":  "Orkhan",
+                             "Soyad":  "Mustafayev",
+                             "Yaş":  10,
+                             "Sinif":  "5B",
+                             "Valideyn adı":  "Nijat"
+                         },
+                         {
+                             "Ad":  "Nermin",
+                             "Soyad":  "Shiriyev",
+                             "Yaş":  13,
+                             "Sinif":  "6C",
+                             "Valideyn adı":  "Ulkar"
+                         },
+                         {
+                             "Ad":  "Tofiq",
+                             "Soyad":  "Karimov",
+                             "Yaş":  12,
+                             "Sinif":  "7C",
+                             "Valideyn adı":  "Kamal"
+                         },
+                         {
+                             "Ad":  "Sima",
+                             "Soyad":  "Orujov",
+                             "Yaş":  11,
+                             "Sinif":  "4D",
+                             "Valideyn adı":  "Konul"
+                         },
+                         {
+                             "Ad":  "Kenan",
+                             "Soyad":  "Aliyev",
+                             "Yaş":  10,
+                             "Sinif":  "5E",
+                             "Valideyn adı":  "Rashad"
+                         },
+                         {
+                             "Ad":  "Zeynab",
+                             "Soyad":  "Abbasov",
+                             "Yaş":  13,
+                             "Sinif":  "6F",
+                             "Valideyn adı":  "Nermin"
+                         },
+                         {
+                             "Ad":  "Namiq",
+                             "Soyad":  "Mikayilov",
+                             "Yaş":  12,
+                             "Sinif":  "7F",
+                             "Valideyn adı":  "Ilgar"
+                         },
+                         {
+                             "Ad":  "Arzu",
+                             "Soyad":  "Mammadov",
+                             "Yaş":  11,
+                             "Sinif":  "5A",
+                             "Valideyn adı":  "Sevda"
+                         },
+                         {
+                             "Ad":  "Rashid",
+                             "Soyad":  "Rahimov",
+                             "Yaş":  10,
+                             "Sinif":  "6B",
+                             "Valideyn adı":  "Anar"
+                         },
+                         {
+                             "Ad":  "Aysel",
+                             "Soyad":  "Hajiyev",
+                             "Yaş":  13,
+                             "Sinif":  "7B",
+                             "Valideyn adı":  "Samira"
+                         }
+                     ]
+    },
+    {
+        "Sinif":  "7F",
+        "StudentSayi":  14,
+        "Students":  [
+                         {
+                             "Ad":  "Sabina",
+                             "Soyad":  "Jafarova",
+                             "Yaş":  11,
+                             "Sinif":  "5A",
+                             "Valideyn adı":  "Amina"
+                         },
+                         {
+                             "Ad":  "Emin",
+                             "Soyad":  "Suleymanov",
+                             "Yaş":  10,
+                             "Sinif":  "4D",
+                             "Valideyn adı":  "Nijat"
+                         },
+                         {
+                             "Ad":  "Shahla",
+                             "Soyad":  "Agayeva",
+                             "Yaş":  13,
+                             "Sinif":  "7E",
+                             "Valideyn adı":  "Ulkar"
+                         },
+                         {
+                             "Ad":  "Tofiq",
+                             "Soyad":  "Karimov",
+                             "Yaş":  12,
+                             "Sinif":  "4B",
+                             "Valideyn adı":  "Kamal"
+                         },
+                         {
+                             "Ad":  "Sima",
+                             "Soyad":  "Orujov",
+                             "Yaş":  11,
+                             "Sinif":  "5C",
+                             "Valideyn adı":  "Konul"
+                         },
+                         {
+                             "Ad":  "Kenan",
+                             "Soyad":  "Aliyev",
+                             "Yaş":  10,
+                             "Sinif":  "6D",
+                             "Valideyn adı":  "Rashad"
+                         },
+                         {
+                             "Ad":  "Zeynab",
+                             "Soyad":  "Abbasov",
+                             "Yaş":  13,
+                             "Sinif":  "7D",
+                             "Valideyn adı":  "Nermin"
+                         },
+                         {
+                             "Ad":  "Namiq",
+                             "Soyad":  "Mikayilov",
+                             "Yaş":  12,
+                             "Sinif":  "4E",
+                             "Valideyn adı":  "Ilgar"
+                         },
+                         {
+                             "Ad":  "Arzu",
+                             "Soyad":  "Mammadov",
+                             "Yaş":  11,
+                             "Sinif":  "5F",
+                             "Valideyn adı":  "Sevda"
+                         },
+                         {
+                             "Ad":  "Rashid",
+                             "Soyad":  "Rahimov",
+                             "Yaş":  10,
+                             "Sinif":  "6G",
+                             "Valideyn adı":  "Anar"
+                         },
+                         {
+                             "Ad":  "Aysel",
+                             "Soyad":  "Hajiyev",
+                             "Yaş":  13,
+                             "Sinif":  "4A",
+                             "Valideyn adı":  "Samira"
+                         },
+                         {
+                             "Ad":  "Emil",
+                             "Soyad":  "Hasanov",
+                             "Yaş":  12,
+                             "Sinif":  "5B",
+                             "Valideyn adı":  "Elchin"
+                         },
+                         {
+                             "Ad":  "Aysu",
+                             "Soyad":  "Suleymanov",
+                             "Yaş":  11,
+                             "Sinif":  "6C",
+                             "Valideyn adı":  "Aynur"
+                         },
+                         {
+                             "Ad":  "Murad",
+                             "Soyad":  "Asadov",
+                             "Yaş":  10,
+                             "Sinif":  "7C",
+                             "Valideyn adı":  "Eldar"
+                         }
+                     ]
+    },
+    {
+        "Sinif":  "7G",
+        "StudentSayi":  14,
+        "Students":  [
+                         {
+                             "Ad":  "Rauf",
+                             "Soyad":  "Ismayilov",
+                             "Yaş":  12,
+                             "Sinif":  "6B",
+                             "Valideyn adı":  "Kamal"
+                         },
+                         {
+                             "Ad":  "Fidan",
+                             "Soyad":  "Asadova",
+                             "Yaş":  11,
+                             "Sinif":  "5D",
+                             "Valideyn adı":  "Konul"
+                         },
+                         {
+                             "Ad":  "Javid",
+                             "Soyad":  "Mustafayev",
+                             "Yaş":  10,
+                             "Sinif":  "4F",
+                             "Valideyn adı":  "Sahin"
+                         },
+                         {
+                             "Ad":  "Zeynab",
+                             "Soyad":  "Abbasov",
+                             "Yaş":  13,
+                             "Sinif":  "4C",
+                             "Valideyn adı":  "Nermin"
+                         },
+                         {
+                             "Ad":  "Namiq",
+                             "Soyad":  "Mikayilov",
+                             "Yaş":  12,
+                             "Sinif":  "5D",
+                             "Valideyn adı":  "Ilgar"
+                         },
+                         {
+                             "Ad":  "Arzu",
+                             "Soyad":  "Mammadov",
+                             "Yaş":  11,
+                             "Sinif":  "6E",
+                             "Valideyn adı":  "Sevda"
+                         },
+                         {
+                             "Ad":  "Rashid",
+                             "Soyad":  "Rahimov",
+                             "Yaş":  10,
+                             "Sinif":  "7E",
+                             "Valideyn adı":  "Anar"
+                         },
+                         {
+                             "Ad":  "Aysel",
+                             "Soyad":  "Hajiyev",
+                             "Yaş":  13,
+                             "Sinif":  "4F",
+                             "Valideyn adı":  "Samira"
+                         },
+                         {
+                             "Ad":  "Emil",
+                             "Soyad":  "Hasanov",
+                             "Yaş":  12,
+                             "Sinif":  "6A",
+                             "Valideyn adı":  "Elchin"
+                         },
+                         {
+                             "Ad":  "Aysu",
+                             "Soyad":  "Suleymanov",
+                             "Yaş":  11,
+                             "Sinif":  "7A",
+                             "Valideyn adı":  "Aynur"
+                         },
+                         {
+                             "Ad":  "Murad",
+                             "Soyad":  "Asadov",
+                             "Yaş":  10,
+                             "Sinif":  "4B",
+                             "Valideyn adı":  "Eldar"
+                         },
+                         {
+                             "Ad":  "Nigar",
+                             "Soyad":  "Qurbanov",
+                             "Yaş":  13,
+                             "Sinif":  "5C",
+                             "Valideyn adı":  "Lale"
+                         },
+                         {
+                             "Ad":  "Elnur",
+                             "Soyad":  "Jafarov",
+                             "Yaş":  12,
+                             "Sinif":  "6D",
+                             "Valideyn adı":  "Rovshan"
+                         },
+                         {
+                             "Ad":  "Gunay",
+                             "Soyad":  "Babayev",
+                             "Yaş":  11,
+                             "Sinif":  "7D",
+                             "Valideyn adı":  "Naila"
+                         }
+                     ]
+    }
+]
