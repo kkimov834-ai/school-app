@@ -740,5 +740,55 @@
                              "Valideyn adı":  "Naila"
                          }
                      ]
+    },
+    {
+        "Sinif":  "8A",
+        "StudentSayi":  16,
+        "Students":  []
+    },
+    {
+        "Sinif":  "8B",
+        "StudentSayi":  15,
+        "Students":  []
+    },
+    {
+        "Sinif":  "8C",
+        "StudentSayi":  17,
+        "Students":  []
+    },
+    {
+        "Sinif":  "1A",
+        "StudentSayi":  0,
+        "Students":  []
+    },
+    {
+        "Sinif":  "2A",
+        "StudentSayi":  0,
+        "Students":  []
+    },
+    {
+        "Sinif":  "3A",
+        "StudentSayi":  0,
+        "Students":  []
+    },
+    {
+        "Sinif":  "4A",
+        "StudentSayi":  0,
+        "Students":  []
+    },
+    {
+        "Sinif":  "5A",
+        "StudentSayi":  0,
+        "Students":  []
+    },
+    {
+        "Sinif":  "6A",
+        "StudentSayi":  0,
+        "Students":  []
+    },
+    {
+        "Sinif":  "9A",
+        "StudentSayi":  0,
+        "Students":  []
     }
 ]

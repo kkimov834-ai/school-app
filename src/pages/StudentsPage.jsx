@@ -7,8 +7,6 @@ import {
   Heading,
   HStack,
   Input,
-  InputGroup,
-  InputRightElement,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -28,20 +26,31 @@ import {
   useColorModeValue,
   useDisclosure,
 } from "@chakra-ui/react";
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import studentData from "../data/studentData.json";
+import classesData from "../data/classesData.json";
 
+const AGE_KEYS = ["YaÅŸ", "Yaş"];
+const PARENT_NAME_KEYS = ["Valideyn adÄ±", "Valideyn adı"];
+
+function getExistingKey(record, keys) {
+  return keys.find((key) => Object.prototype.hasOwnProperty.call(record, key));
+}
+
+function getValueByKeys(record, keys, fallback = "") {
+  const matchedKey = getExistingKey(record, keys);
+  if (!matchedKey) {
+    return fallback;
+  }
+
+  return record[matchedKey];
+}
 function getParentName(student) {
-  return (
-    student["Valideyn adı"] ||
-    student["Valideyn adi"] ||
-    student["Valideyn adÄ±"] ||
-    "-"
-  );
+  return String(getValueByKeys(student, PARENT_NAME_KEYS, "-"));
 }
 
 function getAge(student) {
-  return Number(student["Yaş"] ?? student.Yas ?? 0);
+  return Number(getValueByKeys(student, AGE_KEYS, 0));
 }
 
 function buildModalData(student) {
@@ -57,37 +66,33 @@ function buildModalData(student) {
 function updateStudentRecord(student, modalData) {
   const updatedStudent = {
     ...student,
-    Ad: modalData.Ad,
-    Soyad: modalData.Soyad,
-    Sinif: modalData.Sinif,
+    Ad: modalData.Ad.trim(),
+    Soyad: modalData.Soyad.trim(),
+    Sinif: modalData.Sinif.trim(),
   };
 
-  if (Object.prototype.hasOwnProperty.call(student, "Yaş")) {
-    updatedStudent["Yaş"] = Number(modalData.Yas || 0);
-  } else {
-    updatedStudent.Yas = Number(modalData.Yas || 0);
-  }
+  const ageKey = getExistingKey(student, AGE_KEYS) ?? "YaÅŸ";
+  const parentNameKey =
+    getExistingKey(student, PARENT_NAME_KEYS) ?? "Valideyn adÄ±";
 
-  if (Object.prototype.hasOwnProperty.call(student, "Valideyn adı")) {
-    updatedStudent["Valideyn adı"] = modalData.ValideynAdi;
-  } else if (Object.prototype.hasOwnProperty.call(student, "Valideyn adi")) {
-    updatedStudent["Valideyn adi"] = modalData.ValideynAdi;
-  } else if (Object.prototype.hasOwnProperty.call(student, "Valideyn adÄ±")) {
-    updatedStudent["Valideyn adÄ±"] = modalData.ValideynAdi;
-  } else {
-    updatedStudent["Valideyn adı"] = modalData.ValideynAdi;
-  }
+  updatedStudent[ageKey] = Number(modalData.Yas || 0);
+  updatedStudent[parentNameKey] = modalData.ValideynAdi.trim();
 
   return updatedStudent;
 }
 
 function StudentsPage() {
   const [students, setStudents] = useState(studentData);
-  const [search, setSearch] = useState("");
+  const [modalMode, setModalMode] = useState("create");
+  const [searchInput, setSearchInput] = useState("");
+  const [appliedSearch, setAppliedSearch] = useState("");
   const [showFilters, setShowFilters] = useState(false);
-  const [minAge, setMinAge] = useState("");
-  const [maxAge, setMaxAge] = useState("");
-  const [selectedClass, setSelectedClass] = useState("");
+  const [minAgeInput, setMinAgeInput] = useState("");
+  const [maxAgeInput, setMaxAgeInput] = useState("");
+  const [selectedClassInput, setSelectedClassInput] = useState("");
+  const [appliedMinAge, setAppliedMinAge] = useState("");
+  const [appliedMaxAge, setAppliedMaxAge] = useState("");
+  const [appliedClass, setAppliedClass] = useState("");
   const [selectedStudentIndex, setSelectedStudentIndex] = useState(null);
   const [modalData, setModalData] = useState({
     Ad: "",
@@ -99,14 +104,14 @@ function StudentsPage() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const classOptions = useMemo(
-    () => [...new Set(studentData.map((student) => student.Sinif))].sort(),
+    () => [...new Set(classesData.map((item) => item.Sinif))].sort(),
     [],
   );
 
   const filteredStudents = useMemo(() => {
-    const keyword = search.trim().toLowerCase();
-    const minAgeNumber = minAge === "" ? null : Number(minAge);
-    const maxAgeNumber = maxAge === "" ? null : Number(maxAge);
+    const keyword = appliedSearch.trim().toLowerCase();
+    const minAgeNumber = appliedMinAge === "" ? null : Number(appliedMinAge);
+    const maxAgeNumber = appliedMaxAge === "" ? null : Number(appliedMaxAge);
 
     return students
       .map((student, index) => ({ student, index }))
@@ -121,26 +126,76 @@ function StudentsPage() {
           fullName.includes(keyword) ||
           parentName.includes(keyword) ||
           className.toLowerCase().includes(keyword);
-        const matchesClass = selectedClass === "" || className === selectedClass;
+        const matchesClass = appliedClass === "" || className === appliedClass;
         const matchesMinAge = minAgeNumber === null || age >= minAgeNumber;
         const matchesMaxAge = maxAgeNumber === null || age <= maxAgeNumber;
 
         return matchesSearch && matchesClass && matchesMinAge && matchesMaxAge;
       });
-  }, [students, search, minAge, maxAge, selectedClass]);
+  }, [students, appliedSearch, appliedMinAge, appliedMaxAge, appliedClass]);
 
-  const openStudentModal = (student, index) => {
-    setSelectedStudentIndex(index);
-    setModalData(buildModalData(student));
-    onOpen();
-  };
+  const applySearchAndFilters = useCallback(() => {
+    setAppliedSearch(searchInput);
+    setAppliedMinAge(minAgeInput);
+    setAppliedMaxAge(maxAgeInput);
+    setAppliedClass(selectedClassInput);
+  }, [maxAgeInput, minAgeInput, searchInput, selectedClassInput]);
 
-  const closeStudentModal = () => {
+  const openStudentModal = useCallback(
+    (student, index) => {
+      setModalMode("edit");
+      setSelectedStudentIndex(index);
+      setModalData(buildModalData(student));
+      onOpen();
+    },
+    [onOpen],
+  );
+
+  const openCreateModal = useCallback(() => {
+    setModalMode("create");
     setSelectedStudentIndex(null);
-    onClose();
-  };
+    setModalData({
+      Ad: "",
+      Soyad: "",
+      Yas: "",
+      Sinif: "",
+      ValideynAdi: "",
+    });
+    onOpen();
+  }, [onOpen]);
 
-  const saveStudentModal = () => {
+  const closeStudentModal = useCallback(() => {
+    setSelectedStudentIndex(null);
+    setModalMode("create");
+    onClose();
+  }, [onClose]);
+
+  const saveStudentModal = useCallback(() => {
+    const safeAd = modalData.Ad.trim();
+    const safeSoyad = modalData.Soyad.trim();
+    const safeSinif = modalData.Sinif.trim();
+    const safeYas = Number(modalData.Yas || 0);
+    const safeValideyn = modalData.ValideynAdi.trim();
+
+    if (!safeAd || !safeSoyad || !safeSinif || !safeYas || !safeValideyn) {
+      return;
+    }
+
+    if (modalMode === "create") {
+      setStudents((prev) => [
+        ...prev,
+        {
+          Ad: safeAd,
+          Soyad: safeSoyad,
+          YaÅŸ: safeYas,
+          Sinif: safeSinif,
+          "Valideyn adÄ±": safeValideyn,
+        },
+      ]);
+      closeStudentModal();
+      return;
+    }
+
     if (selectedStudentIndex === null) {
       return;
     }
@@ -156,45 +211,147 @@ function StudentsPage() {
     );
 
     closeStudentModal();
-  };
+  }, [closeStudentModal, modalData, modalMode, selectedStudentIndex]);
+
+  const deleteStudent = useCallback((indexToDelete) => {
+    setStudents((prev) => prev.filter((_, index) => index !== indexToDelete));
+  }, []);
+
+  const resetSearchAndFilters = useCallback(() => {
+    setSearchInput("");
+    setMinAgeInput("");
+    setMaxAgeInput("");
+    setSelectedClassInput("");
+    setAppliedSearch("");
+    setAppliedMinAge("");
+    setAppliedMaxAge("");
+    setAppliedClass("");
+  }, []);
 
   const panelBg = useColorModeValue("white", "gray.800");
   const panelBorder = useColorModeValue("gray.200", "gray.700");
   const headingColor = useColorModeValue("gray.800", "gray.100");
   const muted = useColorModeValue("gray.600", "gray.400");
   const rowHoverBg = useColorModeValue("gray.50", "whiteAlpha.100");
+  const desktopStudentRows = useMemo(
+    () =>
+      filteredStudents.map(({ student, index }) => (
+        <Tr
+          key={`${student.Ad}-${student.Soyad}-${index}`}
+          _hover={{ bg: rowHoverBg }}
+          cursor="pointer"
+          onClick={() => openStudentModal(student, index)}
+        >
+          <Td>{student.Ad}</Td>
+          <Td>{student.Soyad}</Td>
+          <Td>{getAge(student)}</Td>
+          <Td>{student.Sinif}</Td>
+          <Td>{getParentName(student)}</Td>
+          <Td>
+            <HStack justify="flex-end" spacing={2}>
+              <Button
+                size="sm"
+                colorScheme="red"
+                variant="outline"
+                onClick={(event) => {
+                  event.stopPropagation();
+                  deleteStudent(index);
+                }}
+              >
+                Delete
+              </Button>
+            </HStack>
+          </Td>
+        </Tr>
+      )),
+    [deleteStudent, filteredStudents, openStudentModal, rowHoverBg],
+  );
+  const mobileStudentCards = useMemo(
+    () =>
+      filteredStudents.map(({ student, index }) => (
+        <Box
+          key={`${student.Ad}-${student.Soyad}-${index}`}
+          bg={panelBg}
+          borderRadius="xl"
+          borderWidth="1px"
+          borderColor={panelBorder}
+          p={4}
+          cursor="pointer"
+          onClick={() => openStudentModal(student, index)}
+        >
+          <Text fontWeight="semibold">
+            {student.Ad} {student.Soyad}
+          </Text>
+          <Text color={muted} mt={1}>
+            Yas: {getAge(student)}
+          </Text>
+          <Text color={muted}>Sinif: {student.Sinif}</Text>
+          <Text color={muted}>Valideyn: {getParentName(student)}</Text>
+          <HStack mt={3} spacing={2}>
+            <Button
+              size="sm"
+              colorScheme="red"
+              variant="outline"
+              flex={1}
+              onClick={(event) => {
+                event.stopPropagation();
+                deleteStudent(index);
+              }}
+            >
+              Delete
+            </Button>
+          </HStack>
+        </Box>
+      )),
+    [
+      deleteStudent,
+      filteredStudents,
+      muted,
+      openStudentModal,
+      panelBg,
+      panelBorder,
+    ],
+  );
 
   return (
     <VStack align="stretch" spacing={5}>
       <Box>
         <Heading size="lg" color={headingColor}>
-          Ogrenciler
+          Login
         </Heading>
         <Text color={muted} mt={1}>
           Arama ve filtre ile ogrenci listesini yonetin
         </Text>
       </Box>
 
-      <InputGroup>
+      <HStack
+        spacing={3}
+        align={{ base: "stretch", md: "center" }}
+        flexDirection={{ base: "column", md: "row" }}
+      >
         <Input
           placeholder="Ogrenci ara (ad, soyad, sinif, valideyn adi)"
-          value={search}
-          onChange={(event) => setSearch(event.target.value)}
+          value={searchInput}
+          onChange={(event) => setSearchInput(event.target.value)}
           bg={panelBg}
           borderColor={panelBorder}
-          pr="120px"
         />
-        <InputRightElement width="110px">
-          <Button
-            size="sm"
-            colorScheme="blue"
-            variant={showFilters ? "solid" : "outline"}
-            onClick={() => setShowFilters((prev) => !prev)}
-          >
-            Filter
-          </Button>
-        </InputRightElement>
-      </InputGroup>
+        <Button
+          variant={showFilters ? "solid" : "outline"}
+          onClick={() => setShowFilters((prev) => !prev)}
+          w={{ base: "100%", md: "auto" }}
+        >
+          Filter
+        </Button>
+        <Button
+          colorScheme="blue"
+          variant="outline"
+          onClick={openCreateModal}
+          w={{ base: "100%", md: "auto" }}
+        >
+          Create
+        </Button>
+      </HStack>
 
       <Collapse in={showFilters} animateOpacity>
         <Box
@@ -218,8 +375,8 @@ function StudentsPage() {
               <Input
                 size="sm"
                 type="number"
-                value={minAge}
-                onChange={(event) => setMinAge(event.target.value)}
+                value={minAgeInput}
+                onChange={(event) => setMinAgeInput(event.target.value)}
                 w={{ base: "100%", md: "100px" }}
               />
             </Box>
@@ -230,19 +387,22 @@ function StudentsPage() {
               <Input
                 size="sm"
                 type="number"
-                value={maxAge}
-                onChange={(event) => setMaxAge(event.target.value)}
+                value={maxAgeInput}
+                onChange={(event) => setMaxAgeInput(event.target.value)}
                 w={{ base: "100%", md: "100px" }}
               />
             </Box>
-            <Box w={{ base: "100%", md: "auto" }} minW={{ base: "100%", md: "170px" }}>
+            <Box
+              w={{ base: "100%", md: "auto" }}
+              minW={{ base: "100%", md: "170px" }}
+            >
               <Text fontSize="sm" mb={1} color={muted}>
                 Sinif
               </Text>
               <Select
                 size="sm"
-                value={selectedClass}
-                onChange={(event) => setSelectedClass(event.target.value)}
+                value={selectedClassInput}
+                onChange={(event) => setSelectedClassInput(event.target.value)}
               >
                 <option value="">Tum siniflar</option>
                 {classOptions.map((className) => (
@@ -254,13 +414,17 @@ function StudentsPage() {
             </Box>
             <Button
               size="sm"
+              colorScheme="blue"
+              onClick={applySearchAndFilters}
+              w={{ base: "100%", md: "auto" }}
+            >
+              Ara
+            </Button>
+            <Button
+              size="sm"
               variant="ghost"
               w={{ base: "100%", md: "auto" }}
-              onClick={() => {
-                setMinAge("");
-                setMaxAge("");
-                setSelectedClass("");
-              }}
+              onClick={resetSearchAndFilters}
             >
               Sifirla
             </Button>
@@ -288,6 +452,7 @@ function StudentsPage() {
           overflowY="auto"
           maxH={{ base: "50vh", md: "60vh" }}
           boxShadow="sm"
+          display={{ base: "none", md: "block" }}
         >
           <Table variant="simple" size="sm">
             <Thead>
@@ -297,36 +462,39 @@ function StudentsPage() {
                 <Th>Yas</Th>
                 <Th>Sinif</Th>
                 <Th>Valideyn adi</Th>
+                <Th textAlign="right">Aksiyon</Th>
               </Tr>
             </Thead>
-            <Tbody>
-              {filteredStudents.map(({ student, index }) => (
-                <Tr
-                  key={`${student.Ad}-${student.Soyad}-${index}`}
-                  cursor="pointer"
-                  _hover={{ bg: rowHoverBg }}
-                  onClick={() => openStudentModal(student, index)}
-                >
-                  <Td>{student.Ad}</Td>
-                  <Td>{student.Soyad}</Td>
-                  <Td>{getAge(student)}</Td>
-                  <Td>{student.Sinif}</Td>
-                  <Td>{getParentName(student)}</Td>
-                </Tr>
-              ))}
-            </Tbody>
+            <Tbody>{desktopStudentRows}</Tbody>
           </Table>
         </Box>
       )}
 
-      <Modal isOpen={isOpen} onClose={closeStudentModal} isCentered size="lg">
+      {filteredStudents.length > 0 ? (
+        <VStack
+          display={{ base: "flex", md: "none" }}
+          spacing={3}
+          align="stretch"
+        >
+          {mobileStudentCards}
+        </VStack>
+      ) : null}
+
+      <Modal
+        isOpen={isOpen}
+        onClose={closeStudentModal}
+        isCentered
+        size={{ base: "full", md: "lg" }}
+      >
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Ogrenci duzenle</ModalHeader>
+          <ModalHeader>
+            {modalMode === "create" ? "Create ogrenci" : "Edit ogrenci"}
+          </ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <VStack spacing={4} align="stretch">
-              <FormControl>
+              <FormControl isRequired>
                 <FormLabel>Ad</FormLabel>
                 <Input
                   value={modalData.Ad}
@@ -339,7 +507,7 @@ function StudentsPage() {
                 />
               </FormControl>
 
-              <FormControl>
+              <FormControl isRequired>
                 <FormLabel>Soyad</FormLabel>
                 <Input
                   value={modalData.Soyad}
@@ -352,10 +520,11 @@ function StudentsPage() {
                 />
               </FormControl>
 
-              <FormControl>
+              <FormControl isRequired>
                 <FormLabel>Yas</FormLabel>
                 <Input
                   type="number"
+                  min={1}
                   value={modalData.Yas}
                   onChange={(event) =>
                     setModalData((prev) => ({
@@ -366,10 +535,11 @@ function StudentsPage() {
                 />
               </FormControl>
 
-              <FormControl>
+              <FormControl isRequired>
                 <FormLabel>Sinif</FormLabel>
                 <Select
                   value={modalData.Sinif}
+                  placeholder="Sinif secin"
                   onChange={(event) =>
                     setModalData((prev) => ({
                       ...prev,
@@ -385,7 +555,7 @@ function StudentsPage() {
                 </Select>
               </FormControl>
 
-              <FormControl>
+              <FormControl isRequired>
                 <FormLabel>Valideyn adi</FormLabel>
                 <Input
                   value={modalData.ValideynAdi}
@@ -405,7 +575,7 @@ function StudentsPage() {
               Legv et
             </Button>
             <Button colorScheme="blue" onClick={saveStudentModal}>
-              Save
+              {modalMode === "create" ? "Create" : "Save"}
             </Button>
           </ModalFooter>
         </ModalContent>

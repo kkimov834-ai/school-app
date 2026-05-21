@@ -1,7 +1,8 @@
-import AppRoutes from './routes/AppRoutes';
+import { memo } from "react";
+import AppRoutes from "./routes/AppRoutes";
 
 function App() {
   return <AppRoutes />;
 }
 
-export default App;
+export default memo(App);
